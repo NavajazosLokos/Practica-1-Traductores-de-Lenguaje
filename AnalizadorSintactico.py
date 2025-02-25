@@ -1,4 +1,7 @@
-preanalisis = ''  # Declaración global
+preanalisis = ''
+flag=0
+limite_cadena = 0
+cadena = ""
 
 def Lista():
     digito()
@@ -43,24 +46,33 @@ def digito():
         print("no coincide la cadena")
 
 def coincidir(caracter):
-    global preanalisis  # Declaración global
-    if caracter == preanalisis:
-        return True
+    global preanalisis
+    global cadena
+    global flag
+    global limite_cadena
+    flag+=1
+    if flag <= limite_cadena:
+        print("El caracter", caracter, "es válido")
+        preanalisis= cadena[flag]
     else:
-        return False
+        print("El caracter", caracter, "es válido")
+        print("la cadena es valida")
 
-def verificar_cadena(cadena):
-    global preanalisis  # Declaración global
-    for i in range(len(cadena)):
-        preanalisis = cadena[i] 
-        Lista()  
-        if not coincidir(cadena[i]):
-            print ("la cadena no cumple con los procesos")  # Se actualiza solo si la función retorna True
-            break  # O podrías usar 'continue' si quieres que solo lo ignore y siga
+    
+
 
 def main():
+    global limite_cadena
+    global preanalisis
+    global cadena
     cadena = input("Ingresa una cadena: ")
-    verificar_cadena(cadena)
+    limite_cadena=len(cadena)-1
+    preanalisis = cadena[0]
+    Lista()
 
-preanalisis = ''  # Inicia la variable global
+
+preanalisis = ''
+flag = 0
+limite_cadena = 0
+cadena = ""  
 main()
