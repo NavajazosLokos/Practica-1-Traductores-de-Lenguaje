@@ -21,7 +21,7 @@ def Resto_Lista():
         pass
 
 def digito():
-    global preanalisis  # Declaración global
+    global preanalisis  # Declaración global xd
     if preanalisis == '0':
         coincidir('0')
     elif preanalisis == '1':
